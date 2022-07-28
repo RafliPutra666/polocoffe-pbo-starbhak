@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,16 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('kasir');
+    return view('index');
 });
+
+Route::get('/kasir', function () {
+    return view('kasir');
+});     
+
+// Route::get('/admin', function () {
+//     return view('admin');
+// });
+
+Route::get('/manager', [AdminController::class, 'index'])->name('manager');
+
