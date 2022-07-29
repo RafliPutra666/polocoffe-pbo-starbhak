@@ -6,7 +6,8 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container-fluid">
-        <div class="row mb-2"><!-- /.col -->
+        <div class="row mb-2">
+          <h1>Welcome Admin</h1><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
