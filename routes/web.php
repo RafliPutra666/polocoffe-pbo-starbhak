@@ -28,7 +28,7 @@ Route::get('/', function () {
 
 Route::get('/kasir', function () {
     return view('kasir');
-});     
+});
 
 Route::get('/manager', function () {
     return view('manager');
@@ -38,3 +38,6 @@ Route::get('/menu', function () {
     return view('input-menu');
 });
 
+Route::get('/transaksi', function () {
+    return view('transaksi');
+});

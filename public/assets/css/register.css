@@ -3,26 +3,27 @@ a{
 }
 
 body{
-    background: -webkit-linear-gradient(bottom,#3498db,#9b59b6);
+    background-color: #876445;
+    /* background: -webkit-linear-gradient(bottom,#3498db,#9b59b6); */
     background-repeat: no-repeat;
-    padding-bottom: 303px;
+    padding-top: 100px;
 }
 label{
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12pt;
 }
 #forgot-pass{
-    color: #9b59b6;
+    color: #876445;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 10pt;
     margin-top: 3px;
     text-align: right;
 }
-#card{
+#card{ 
     background: #fbfbfb;
     border-radius: 8px;
     box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.65);
-    height: 499px;
+    height: 550px;
     margin: 1.64rem auto 6.9rem auto;
     width: 700px;
 }
@@ -37,17 +38,18 @@ label{
     text-align: center;
 }
 #signup{
-    color: #9b59b6;
+    color: #876445;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 10pt;
     margin-top: 16px;
     text-align: center;
 }
 #submit-btn{
-    background: -webkit-linear-gradient(bottom,#3498db,#9b59b6);
+    background-color: #876445;
+    /* background: -webkit-linear-gradient(bottom,#3498db,#9b59b6); */
     border-radius: 21px;
     border: none;
-    box-shadow: 0px 1px 8px #9b59b6;
+    box-shadow: 0px 1px 8px #876445;
     cursor: pointer;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
@@ -58,7 +60,7 @@ label{
     width: 153px;
 }
 #submit-btn:hover{
-    box-shadow: 0px 1px 18px #9b59b6;
+    box-shadow: 0px 1px 18px #876445;
 }
 .form{
     align-items: left;
@@ -68,7 +70,7 @@ label{
 .form-border{
     height: 1px;
     width: 100%;
-    background: -webkit-linear-gradient(right,#3498db,#9b59b6);
+    background: -webkit-linear-gradient(right,#3498db,#876445);
 }
 .form-content{
     background: #fbfbfb;
@@ -77,7 +79,7 @@ label{
     padding-top: 14px;
 }
 .underline-title{
-    background: -webkit-linear-gradient(right,#3498db,#9b59b6); 
+    background: -webkit-linear-gradient(right,#3498db,#876445); 
     height: 2px;
     margin: -1.1px auto 0 auto;
     width: 89px;
