@@ -22,9 +22,11 @@ Route::get('/kasir', function () {
     return view('kasir');
 });     
 
-// Route::get('/admin', function () {
-//     return view('admin');
-// });
+Route::get('/manager', function () {
+    return view('manager');
+});
 
-Route::get('/manager', [AdminController::class, 'index'])->name('manager');
+Route::get('/menu', function () {
+    return view('input-menu');
+});
 
