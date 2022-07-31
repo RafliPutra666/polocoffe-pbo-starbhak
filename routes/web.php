@@ -14,30 +14,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', function () {
-    return view('login');
+Route::get('/', function () {
+    return view('login.login');
 });
 
 Route::get('/register', function () {
-    return view('register');
+    return view('login.register');
 });
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/admin', function () {
+    return view('admin.admin');
 });
 
 Route::get('/kasir', function () {
-    return view('kasir');
+    return view('kasir.kasir');
 });
 
 Route::get('/manager', function () {
-    return view('manager');
+    return view('manager.manager');
 });
 
 Route::get('/menu', function () {
-    return view('input-menu');
+    return view('manager.input-menu');
 });
 
 Route::get('/transaksi', function () {
-    return view('transaksi');
+    return view('kasir.transaksi');
 });
