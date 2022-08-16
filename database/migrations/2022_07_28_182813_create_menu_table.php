@@ -15,9 +15,9 @@ class CreateMenuTable extends Migration
     {
         Schema::create('menu', function (Blueprint $table) {
             $table->id();
-            $table->string('kode_menu');
-            $table->string('nama');
-            $table->string('harga');
+            $table->string('nama_menu');
+            $table->string('kategori_id');
+            $table->integer('harga');
             $table->timestamps();
         });
     }
