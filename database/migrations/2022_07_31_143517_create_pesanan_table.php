@@ -15,7 +15,7 @@ class CreatePesananTable extends Migration
     {
         Schema::create('pesanan', function (Blueprint $table) {
             $table->id();
-            $table->integer('menu_id');
+            $table->foreignId('menu_id');
             $table->integer('nomor_meja');
             $table->integer('jumlah_pesan');
             $table->integer('total');
