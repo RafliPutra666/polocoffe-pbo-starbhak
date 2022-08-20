@@ -36,6 +36,7 @@ class MenuController extends Controller
         $validator = Validator::make($request->all(), [
             'gambar_menu'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'nama_menu'     => 'required',
+            'kategori_id' => 'required',
             'harga'   => 'required',
         ]);
 
@@ -90,9 +91,55 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, menu $post)
     {
-        //
+        //define validation rules
+        $validator = Validator::make($request->all(), [
+            'gambar_menu'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nama_menu'     => 'required',
+            'kategori_id' => 'required',
+            'harga'   => 'required',
+        ]);
+
+        //check if validation fails
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        //check if image is not empty
+        if ($request->hasFile('image')) {
+
+            //upload image
+            $gambar_menu = $request->file('gambar_menu');
+            $gambar_menu->storeAs('public/menu', $gambar_menu->hashName());
+
+            //delete old image
+            // menu::delete('public/menu/'.$post->gambar_menu);
+
+            //update post with new image
+            $post->update([
+            'nama_menu' => $request->nama_menu,
+            'kategori_id' => $request->kategori_id,
+            'gambar_menu'     => $gambar_menu->hashName(),
+            'harga'     => $request->harga,
+            ]);
+
+        } else {
+
+            $gambar_menu = $request->file('gambar_menu');
+        $gambar_menu->storeAs('public/menu', $gambar_menu->hashName());
+
+            //update post without image
+            $post = menu::create([
+                'nama_menu' => $request->nama_menu,
+                'kategori_id' => $request->kategori_id,
+                'gambar_menu'     => $gambar_menu->hashName(),
+                'harga'     => $request->harga,
+            ]);
+        }
+
+        //return response
+        return new PostResource(true, 'Data Post Berhasil Diubah!', $post);
     }
 
     /**
@@ -101,8 +148,13 @@ class MenuController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(menu $post)
     {
-        //
+
+        //delete post
+        $post->delete();
+
+        //return response
+        return new PostResource(true, 'Data Post Berhasil Dihapus!', null);
     }
 }
