@@ -34,9 +34,9 @@ class MenuController extends Controller
         
         //define validation rules
         $validator = Validator::make($request->all(), [
-            'image'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title'     => 'required',
-            'content'   => 'required',
+            'gambar_menu'     => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'nama_menu'     => 'required',
+            'harga'   => 'required',
         ]);
 
         //check if validation fails
@@ -45,18 +45,19 @@ class MenuController extends Controller
         }
 
         //upload image
-        $image = $request->file('image');
-        $image->storeAs('public/posts', $image->hashName());
+        $gambar_menu = $request->file('gambar_menu');
+        $gambar_menu->storeAs('public/menu', $gambar_menu->hashName());
 
         //create post
-        $post = menu::create([
+        $menu = menu::create([
             'nama_menu' => $request->nama_menu,
-            'gambar_menu'     => $image->hashName(),
+            'kategori_id' => $request->kategori_id,
+            'gambar_menu'     => $gambar_menu->hashName(),
             'harga'     => $request->harga,
         ]);
 
         //return response
-        return new PostResource(true, 'Data Post Berhasil Ditambahkan!', $post);
+        return new PostResource(true, 'Data Post Berhasil Ditambahkan!', $menu);
     }
 
     /**
